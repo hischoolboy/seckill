@@ -1,0 +1,31 @@
+spring:
+  thymeleaf:
+#    prefis: classpath:/templates/
+#    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+
+  devtools:
+    remote:
+      debug:
+        enabled: true
+
+## 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3381/seckill?useUnicode:true&characterEncoding:utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+## Mybatis 配置
+mybatis:
+  typeAliasesPackage: io.github.hischoolboy
+  mapperLocations: classpath*:mapper/**/*.xml
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
+    io.github.hischoolboy.dao : true
