@@ -1,4 +1,4 @@
-package io.github.hischoolboy;
+package me.cchu;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
