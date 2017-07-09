@@ -21,7 +21,7 @@ spring:
 
 ## Mybatis 配置
 mybatis:
-  typeAliasesPackage: io.github.hischoolboy
+  typeAliasesPackage: me.cchu
   mapperLocations: classpath*:mapper/**/*.xml
 
 logging:
