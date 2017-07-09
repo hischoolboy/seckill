@@ -1,4 +1,4 @@
-package io.github.hischoolboy.dto;
+package me.cchu.dto;
 
 import lombok.Getter;
 import lombok.Setter;

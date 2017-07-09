@@ -1,4 +1,4 @@
-package io.github.hischoolboy.exception;
+package me.cchu.exception;
 
 /**
  *  Created by hischoolboy on 2017/5/20.

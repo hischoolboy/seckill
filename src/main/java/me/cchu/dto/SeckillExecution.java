@@ -1,7 +1,7 @@
-package io.github.hischoolboy.dto;
+package me.cchu.dto;
 
-import io.github.hischoolboy.domain.SuccessKilled;
-import io.github.hischoolboy.enums.SeckillStatEnum;
+import me.cchu.domain.SuccessKilled;
+import me.cchu.enums.SeckillStatEnum;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

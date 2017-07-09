@@ -1,18 +1,17 @@
-package io.github.hischoolboy.service.impl;
+package me.cchu.service.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import io.github.hischoolboy.dao.SeckillDao;
-import io.github.hischoolboy.dao.SuccessKilledDao;
-import io.github.hischoolboy.dto.Exposer;
-import io.github.hischoolboy.dto.SeckillExecution;
-import io.github.hischoolboy.domain.Seckill;
-import io.github.hischoolboy.domain.SuccessKilled;
-import io.github.hischoolboy.enums.SeckillStatEnum;
-import io.github.hischoolboy.exception.RepeatKillException;
-import io.github.hischoolboy.exception.SeckillCloseException;
-import io.github.hischoolboy.exception.SeckillException;
-import io.github.hischoolboy.service.SeckillService;
+import lombok.extern.slf4j.Slf4j;
+import me.cchu.dao.SeckillDao;
+import me.cchu.dao.SuccessKilledDao;
+import me.cchu.domain.Seckill;
+import me.cchu.domain.SuccessKilled;
+import me.cchu.dto.Exposer;
+import me.cchu.dto.SeckillExecution;
+import me.cchu.exception.RepeatKillException;
+import me.cchu.exception.SeckillCloseException;
+import me.cchu.exception.SeckillException;
+import me.cchu.service.SeckillService;
+import me.cchu.enums.SeckillStatEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,11 +24,10 @@ import java.util.Objects;
 /**
  *  Created by hischoolboy on 2017/5/21.
  */
-
+@Slf4j
 @Service
+@SuppressWarnings("unchecked")
 public class SeckillServiceImpl implements SeckillService {
-
-    private Log LOG = LogFactory.getLog(this.getClass());
 
     @Autowired
     private SeckillDao seckillDao;
@@ -66,8 +64,7 @@ public class SeckillServiceImpl implements SeckillService {
         }
 
         //转化特定字符串的过程,不可逆
-        String md5 = getMD5(seckillId);
-        return new Exposer(true, md5, seckillId);
+        return new Exposer(true, getMD5(seckillId), seckillId);
     }
 
 
@@ -106,7 +103,7 @@ public class SeckillServiceImpl implements SeckillService {
         } catch (RepeatKillException e2) {
             throw e2;
         } catch (Exception e) {
-            LOG.error(e.getMessage());
+            log.error(e.getMessage());
             //所有的编译期异常转化为运行期异常,spring的声明式事务做rollback
             throw new SeckillException("seckill inner error: " + e.getMessage());
         }
@@ -115,7 +112,9 @@ public class SeckillServiceImpl implements SeckillService {
     private String getMD5(long seckillId) {
         String base = seckillId + "/" + slat;
         String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
-        LOG.info("_________________________________md5: " + md5);
+        if (log.isDebugEnabled()) {
+            log.debug("md5:" + md5);
+        }
         return md5;
     }
 }

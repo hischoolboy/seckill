@@ -1,6 +1,6 @@
-package io.github.hischoolboy.dao;
+package me.cchu.dao;
 
-import io.github.hischoolboy.domain.SuccessKilled;
+import me.cchu.domain.SuccessKilled;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,19 +1,17 @@
-package io.github.hischoolboy.service;
+package me.cchu.service;
 
 
-import io.github.hischoolboy.domain.Seckill;
-import io.github.hischoolboy.dto.Exposer;
-import io.github.hischoolboy.dto.SeckillExecution;
-import io.github.hischoolboy.exception.RepeatKillException;
-import io.github.hischoolboy.exception.SeckillCloseException;
-import io.github.hischoolboy.exception.SeckillException;
+import me.cchu.domain.Seckill;
+import me.cchu.dto.Exposer;
+import me.cchu.dto.SeckillExecution;
+import me.cchu.exception.RepeatKillException;
+import me.cchu.exception.SeckillCloseException;
+import me.cchu.exception.SeckillException;
 
 import java.util.List;
 
 /**
- * Created by hischoolboy on 2017/5/21.
- * 业务接口:站在"使用者"的角度设计接口
- * 1.方法的定义的粒度.2.参数.3.返回类型(return /异常)
+ *  Created by hischoolboy on 2017/5/21.
  */
 public interface SeckillService {
 

@@ -1,5 +1,4 @@
-
-package io.github.hischoolboy.domain;
+package me.cchu.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,17 +12,14 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-public class Seckill {
+public class SuccessKilled {
+    private Seckill seckill;
 
     private long seckillId;
 
-    private String name;
+    private long userPhone;
 
-    private int number;
-
-    private Date startTime;
-
-    private Date endTime;
+    private short state;
 
     private Date createTime;
 }

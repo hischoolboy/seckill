@@ -1,4 +1,4 @@
-package io.github.hischoolboy.enums;
+package me.cchu.enums;
 
 import lombok.Getter;
 
@@ -6,7 +6,7 @@ import lombok.Getter;
  *  Created by hischoolboy on 2017/5/20.
  */
 @Getter
-public enum  SeckillStatEnum {
+public enum SeckillStatEnum {
 
     SUCCESS(1, "秒杀成功"),
     END(0, "秒杀结束"),

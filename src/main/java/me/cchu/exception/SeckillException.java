@@ -1,4 +1,4 @@
-package io.github.hischoolboy.exception;
+package me.cchu.exception;
 
 /**
  * 秒杀相关业务异常

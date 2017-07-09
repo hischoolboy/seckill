@@ -1,13 +1,13 @@
-package io.github.hischoolboy.web.controller;
+package me.cchu.web.controller;
 
-import io.github.hischoolboy.domain.Seckill;
-import io.github.hischoolboy.dto.Exposer;
-import io.github.hischoolboy.dto.SeckillExecution;
-import io.github.hischoolboy.dto.SeckillResult;
-import io.github.hischoolboy.enums.SeckillStatEnum;
-import io.github.hischoolboy.exception.RepeatKillException;
-import io.github.hischoolboy.exception.SeckillCloseException;
-import io.github.hischoolboy.service.SeckillService;
+import me.cchu.domain.Seckill;
+import me.cchu.dto.Exposer;
+import me.cchu.dto.SeckillExecution;
+import me.cchu.dto.SeckillResult;
+import me.cchu.enums.SeckillStatEnum;
+import me.cchu.exception.RepeatKillException;
+import me.cchu.exception.SeckillCloseException;
+import me.cchu.service.SeckillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +34,9 @@ public class SeckillController {
     @GetMapping("/list")
     public ModelAndView list() {
         List<Seckill> seckills = seckillService.getSeckillList();
-        log.info("---------------------------------->" + seckills.toString());
+        if(log.isDebugEnabled()){
+            log.debug("查询结果: " + seckills.toString());
+        }
         ModelAndView mv = new ModelAndView("/seckill/list", "seckills", seckills);
         return mv;
     }
