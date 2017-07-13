@@ -26,6 +26,5 @@ mybatis:
 
 logging:
   level:
-    org:
-      springframework: DEBUG
-    io.github.hischoolboy.dao : true
+    org.springframework: DEBUG
+    me.cchu : DEBUG
