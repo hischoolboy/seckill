@@ -27,4 +27,4 @@ mybatis:
 logging:
   level:
     org.springframework: DEBUG
-    me.cchu : DEBUG
+    me.cchu: DEBUG
